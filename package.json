@@ -32,7 +32,7 @@
     "react-dom": "16.2"
   },
   "scripts": {
-    "start": "open http://localhost:8080 && webpack-dev-server --mode development",
+    "start": "webpack-dev-server --mode development",
     "lint": "eslint './src/**/*.js*'",
     "deploy": "webpack -p && gh-pages -d dist"
   }
