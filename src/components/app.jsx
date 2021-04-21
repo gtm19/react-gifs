@@ -1,12 +1,7 @@
 import React, { Component } from "react";
 import SearchBar from "./search_bar";
-
-const Gif = (props) => {
-  const src = `https://media2.giphy.com/media/${props.gif}/200.gif`;
-  return (
-    <img src={src} className="gif"/>
-  );
-};
+import Gif from "./gif";
+import GifList from "./gif_list";
 
 class App extends Component {
   constructor(props) {
@@ -15,17 +10,17 @@ class App extends Component {
     this.state = {
       gif: "WpIjh42KPontoNSF0J",
       gifs: [
-        {id: "WpIjh42KPontoNSF0J"},
-        {id: "WpIjh42KPontoNSF0J"},
-        {id: "WpIjh42KPontoNSF0J"},
-        {id: "WpIjh42KPontoNSF0J"},
-        {id: "WpIjh42KPontoNSF0J"},
-        {id: "WpIjh42KPontoNSF0J"},
-        {id: "WpIjh42KPontoNSF0J"},
-        {id: "WpIjh42KPontoNSF0J"},
-        {id: "WpIjh42KPontoNSF0J"},
-        {id: "WpIjh42KPontoNSF0J"}
-      ],
+        { gif: "WpIjh42KPontoNSF0J" },
+        { gif: "WpIjh42KPontoNSF0J" },
+        { gif: "WpIjh42KPontoNSF0J" },
+        { gif: "WpIjh42KPontoNSF0J" },
+        { gif: "WpIjh42KPontoNSF0J" },
+        { gif: "WpIjh42KPontoNSF0J" },
+        { gif: "WpIjh42KPontoNSF0J" },
+        { gif: "WpIjh42KPontoNSF0J" },
+        { gif: "WpIjh42KPontoNSF0J" },
+        { gif: "WpIjh42KPontoNSF0J" }
+      ]
     };
   }
 
@@ -35,10 +30,11 @@ class App extends Component {
         <div className="left-scene">
           <SearchBar />
           <div className="selected-gif">
-            <Gif gif={this.state.gif}/>
+            <Gif gif={this.state.gif} />
           </div>
         </div>
         <div className="right-scene">
+          <GifList gifs={this.state.gifs} />
         </div>
       </div>
     );
