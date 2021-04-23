@@ -16,6 +16,9 @@ class App extends Component {
 
     // start with a random gif
     this.random();
+
+    // NOTE: Binding is necessary if functions are not defined using arrow method
+    // see https://reactjs.org/docs/handling-events.html
     this.search = this.search.bind(this);
     this.updateGif = this.updateGif.bind(this);
   }
