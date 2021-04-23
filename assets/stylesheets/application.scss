@@ -23,12 +23,10 @@ body {
     }
   }
 
-  &:before {
-    content: '\F002';
+  #search-icon {
     position: absolute;
-    top: 35px;
+    top: 40px;
     left: 60px;
-    font-family: FontAwesome;
     font-size: 2.6em;
     opacity: 0.4;
   }

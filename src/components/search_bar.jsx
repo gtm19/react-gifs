@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 class SearchBar extends Component {
   handleChange = (event) => {
@@ -8,7 +10,10 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <input className="form-search form-control" type="text" name="gif-search" id="gif-search" onChange={this.handleChange} />
+      <span>
+        <FontAwesomeIcon icon={faSearch} id="search-icon" />
+        <input className="form-search form-control" type="text" name="gif-search" id="gif-search" onChange={this.handleChange} />
+      </span>
     );
   }
 }
