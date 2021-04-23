@@ -13,17 +13,14 @@ class App extends Component {
       gif: "",
       gifs: []
     };
-    
+
     // start with a random gif
-    fetch(`https://api.giphy.com/v1/gifs/random?api_key=${GIPHY_API_KEY}&rating=g`)
-      .then(response => response.json())
-      .then((data) => {
-        this.setState({ gif: data.data.id });
-      });
+    this.random();
+    this.search = this.search.bind(this);
+    this.updateGif = this.updateGif.bind(this);
   }
 
-
-  search = (q) => {
+  search(q) {
     const url = `https://api.giphy.com/v1/gifs/search?api_key=${GIPHY_API_KEY}&q=${q}&limit=10&rating=g`;
     fetch(url)
       .then(response => response.json())
@@ -32,17 +29,31 @@ class App extends Component {
       });
   }
 
+  updateGif(id) {
+    this.setState({ gif: id });
+    console.log("gif updated");
+  }
+
+  random() {
+    fetch(`https://api.giphy.com/v1/gifs/random?api_key=${GIPHY_API_KEY}&rating=g`)
+      .then(response => response.json())
+      .then((data) => {
+        this.setState({ gif: data.data.id });
+      });
+  }
+
   render() {
+    const { gif, gifs } = this.state;
     return (
       <div>
         <div className="left-scene">
           <SearchBar searchFunction={this.search} />
           <div className="selected-gif">
-            <Gif gif={this.state.gif} />
+            <Gif gif={gif} />
           </div>
         </div>
         <div className="right-scene">
-          <GifList gifs={this.state.gifs} />
+          <GifList gifs={gifs} updateFunction={this.updateGif} />
         </div>
       </div>
     );
