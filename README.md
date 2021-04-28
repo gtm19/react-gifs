@@ -1,13 +1,6 @@
-# react-boilerplate
+# react-gifs
 
-Simple react starter with the following config:
-
-- React, ReactDOM
-- Webpack 4
-- Babel with es2015 and react presets
-- Bootstrap (css only, loaded from a cdn in `index.html`)
-- work with `.js` or `.jsx` files
-- main `application.scss` stylesheet is imported in `index.js` as a module to enjoy hot reloading
+Simple react app for searching / selecting gifs
 
 ## Scripts
 
@@ -30,6 +23,16 @@ yarn deploy
 ```
 
 ## Learnings from completing this challenge
+
+### Method declarations
+
+If the method is created as an arrow function, it is bound to the instance - so the method can access `this`. If it is declared as a normal [ES6 class method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Method_definitions), then it needs to be bound by adding something like this to the constructor:
+
+```jsx
+this.method = this.method.bind(this);
+```
+
+Read more about this [here](https://reactjs.org/docs/handling-events.html).
 
 ### Fontawesome
 
