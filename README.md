@@ -86,7 +86,7 @@ I know the underlying HTTP request to Giphy will reveal the API key anyway, but 
 So I installed [dotenv-webpack](https://github.com/mrsteele/dotenv-webpack) using `yarn`:
 
 ```sh
-yarn install dotenv-webpack
+yarn add dotenv-webpack --dev
 ```
 
 Then added the following to [webpack.config.js](webpack.config.js):
